@@ -72,7 +72,13 @@ endif
 GENERATED :=
 OBJECTS :=
 
+GENERATED += $(OBJDIR)/component.o
+GENERATED += $(OBJDIR)/engine.o
+GENERATED += $(OBJDIR)/entity.o
 GENERATED += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/component.o
+OBJECTS += $(OBJDIR)/engine.o
+OBJECTS += $(OBJDIR)/entity.o
 OBJECTS += $(OBJDIR)/main.o
 
 # Rules
@@ -137,6 +143,15 @@ endif
 # File Rules
 # #############################################
 
+$(OBJDIR)/component.o: elementaEngine/src/component.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/engine.o: elementaEngine/src/engine.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/entity.o: elementaEngine/src/entity.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/main.o: elementaEngine/src/main.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"

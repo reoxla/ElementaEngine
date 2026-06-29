@@ -13,6 +13,10 @@ void Entity::Draw(){
 }
 
 Entity::~Entity(){
-    for (auto const& comp : components) delete comp;
+    for (auto const& comp : components){
+        if(comp != nullptr){
+            delete comp;
+        }
+    }
     components.clear();
 }

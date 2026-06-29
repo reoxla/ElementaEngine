@@ -13,14 +13,20 @@ void Engine::Run(){
         for (auto const& entity : entities) entity->Update(dt);
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        DrawText("ElementaEngine Calisiyor!", 190, 200, 20, LIGHTGRAY);
+        DrawText("ElementaEnginer!", 190, 200, 20, LIGHTGRAY);
         for (auto const& entity : entities) entity->Draw();
         EndDrawing();
     }   
 }
 
 void Engine::Stop(){
-    for (auto const& entity : entities) delete entity;
+    for (auto const& entity : entities){
+        if (entity != nullptr)
+        {
+            delete entity;
+        }
+        
+    }
     CloseWindow();
 }
 
@@ -29,5 +35,4 @@ void Engine::addEntity(Entity* ent){
 }
 
 Engine::~Engine(){
-    Stop();
 }

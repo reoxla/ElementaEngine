@@ -2,6 +2,8 @@
 
 #include "raylib.h"
 
+#include <string>
+
 class Component
 {
 public:
@@ -10,16 +12,15 @@ public:
     virtual ~Component() = default;
 };
 
-class ScriptComponent : public Component
+class SpriteComponent : public Component
 {
 private:
     Texture2D tex;
-    const char* texPath;
     Vector2 pos;
-    Vector2 scale;
+    Rectangle scaleRec;
 public:
-    ScriptComponent(Texture2D texI, Vector2 posI, Vector2 scaleI);
-    ~ScriptComponent();
+    SpriteComponent(std::string texPathI, Vector2 posI, Vector2 scaleI);
+    ~SpriteComponent() override;
+    void Draw() override;
+    void Update(float deltaTime) override {};
 };
-
-
