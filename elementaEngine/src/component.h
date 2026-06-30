@@ -17,9 +17,9 @@ class SpriteComponent : public Component
 private:
     Texture2D tex;
     Vector2 pos;
-    Rectangle scaleRec;
+    float scale;
 public:
-    SpriteComponent(std::string texPathI, Vector2 posI, Vector2 scaleI);
+    SpriteComponent(std::string texPathI, Vector2 posI, float scaleI);
     ~SpriteComponent() override;
     void Draw() override;
     void Update(float deltaTime) override {};

@@ -2,21 +2,22 @@
 
 #include <vector>
 
-#include "entity.h"
+#include "map.h"
 #include "raylib.h"
 
 class Engine
 {
 private:
-    std::vector<Entity*> entities;
+    std::vector<Map*> maps;
     bool isRunning = false;
 public:
+    Map* currentMap;
     Engine() : isRunning(false) {}
 
     void Start();
     void Run();
     void Stop();
-    void addEntity(Entity* ent);
+    void addMap(Map* map);
 
-    ~Engine();
+    ~Engine(){};
 };

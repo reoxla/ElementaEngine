@@ -11,11 +11,15 @@ int main() {
         Engine engine = Engine();
         engine.Start();
 
-        Entity* Mario = new Entity();
-        SpriteComponent* marioSprite = new SpriteComponent("assets/textures/MarioIdle.png", Vector2 {200, 300}, Vector2{300, 500});
+        SpriteComponent* marioSprite = new SpriteComponent("assets/textures/MarioIdle.png", Vector2 {200, 300}, 0.2f);
+
+        Entity* Mario = new Entity();        
         Mario->addComponent(marioSprite);
 
-        engine.addEntity(Mario);
+        Map* scene1 = new Map(BLACK);
+        scene1->addEntity(Mario);
+
+        engine.addMap(scene1);
         
         engine.Run();
         engine.Stop();

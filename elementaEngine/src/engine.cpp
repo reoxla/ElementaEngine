@@ -10,29 +10,29 @@ void Engine::Run(){
     while (isRunning && !WindowShouldClose())
     {
         float dt = GetFrameTime();
-        for (auto const& entity : entities) entity->Update(dt);
+        for (auto const& map : maps) map->Update(dt);
+
         BeginDrawing();
-        ClearBackground(RAYWHITE);
-        DrawText("ElementaEnginer!", 190, 200, 20, LIGHTGRAY);
-        for (auto const& entity : entities) entity->Draw();
+
+        ClearBackground(currentMap->backgroundColor);
+
+        for (auto const& map : maps) map->Draw();
+
         EndDrawing();
     }   
 }
 
 void Engine::Stop(){
-    for (auto const& entity : entities){
-        if (entity != nullptr)
+    for (auto const& map : maps){
+        if (map != nullptr)
         {
-            delete entity;
+            delete map;
         }
         
     }
     CloseWindow();
 }
 
-void Engine::addEntity(Entity* ent){
-    entities.push_back(ent);
-}
-
-Engine::~Engine(){
+void Engine::addMap(Map* map){
+    maps.push_back(map);
 }

@@ -76,10 +76,12 @@ GENERATED += $(OBJDIR)/component.o
 GENERATED += $(OBJDIR)/engine.o
 GENERATED += $(OBJDIR)/entity.o
 GENERATED += $(OBJDIR)/main.o
+GENERATED += $(OBJDIR)/map.o
 OBJECTS += $(OBJDIR)/component.o
 OBJECTS += $(OBJDIR)/engine.o
 OBJECTS += $(OBJDIR)/entity.o
 OBJECTS += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/map.o
 
 # Rules
 # #############################################
@@ -153,6 +155,9 @@ $(OBJDIR)/entity.o: elementaEngine/src/entity.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/main.o: elementaEngine/src/main.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/map.o: elementaEngine/src/map.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
