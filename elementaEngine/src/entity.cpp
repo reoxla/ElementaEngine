@@ -1,3 +1,4 @@
+#include "component.h"
 #include "entity.h"
 
 void Entity::addComponent(Component* comp){
@@ -10,6 +11,11 @@ void Entity::Update(float deltaTime){
 
 void Entity::Draw(){
     for(auto const& comp : components) comp->Draw();
+}
+
+Entity::Entity() {
+    BaseComponent* base = new BaseComponent();
+    addComponent(base);
 }
 
 Entity::~Entity(){

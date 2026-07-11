@@ -1,8 +1,8 @@
 #pragma once
 
-#include "component.h"
-
 #include <vector>
+
+class Component;
 
 class Entity
 {
@@ -11,5 +11,6 @@ public:
     void addComponent(Component* comp);
     void Update(float deltaTime);
     void Draw();
+    Entity();
     ~Entity();
 };

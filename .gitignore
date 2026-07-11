@@ -67,3 +67,34 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Visual Studio build artifacts and tracking folders
+.vs/
+build/
+bin/
+obj/
+
+# Visual Studio project files (Premake will regenerate these on demand)
+*.sln
+*.slnx
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# ==========================================
+# Third-Party Dependencies (ImGui / rlImGui)
+# ==========================================
+# Ignore local IDE settings or caches that might be created inside your dependencies folder
+dependencies/**/.vs/
+dependencies/**/.idea/
+dependencies/**/.vscode/
+
+# Ignore any hidden system or tracking files inside dependency folders
+dependencies/**/.DS_Store
+dependencies/**/Thumbs.db
+
+# If you ever use a package manager/script to fetch them dynamically, 
+# you can uncomment the line below to ignore the entire folders. 
+# But if you cloned them manually into your repo, leave this commented out!
+# dependencies/imgui/
+# dependencies/rlImGui/

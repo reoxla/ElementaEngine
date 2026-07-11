@@ -8,6 +8,8 @@ Map::~Map() { for(auto const& entity : entities) delete entity; }
 
 void Map::Draw() { for(auto const& entity : entities) entity->Draw(); }
 
+void Map::Update(float deltaTime) { for (auto const& entity : entities) entity->Update(deltaTime); }
+
 void Map::addEntity(Entity* entity){
     entities.push_back(entity);
 }

@@ -9,17 +9,17 @@ int main() {
 
     {
         Engine engine = Engine();
-        engine.Start();
-
-        SpriteComponent* marioSprite = new SpriteComponent("assets/textures/MarioIdle.png", Vector2 {200, 300}, 0.2f);
-
-        Entity* Mario = new Entity();        
-        Mario->addComponent(marioSprite);
-
-        Map* scene1 = new Map(BLACK);
-        scene1->addEntity(Mario);
-
+        Map* scene1 = new Map(BLUE);
         engine.addMap(scene1);
+
+        Entity* Mario = new Entity();
+
+        SpriteComponent* marioSprite = new SpriteComponent("assets/textures/MarioIdle.png", Mario);
+        CollisionComponent* marioCollision = new CollisionComponent(Vector2{ 100, 100 }, Vector2{ 0,0 });
+        Mario->addComponent(marioSprite);
+        Mario->addComponent(marioCollision);
+
+        scene1->addEntity(Mario);
         
         engine.Run();
         engine.Stop();
