@@ -11,7 +11,7 @@ SpriteComponent::SpriteComponent(std::string texPathI, Entity* entityPass)
 BaseComponent::BaseComponent()
 {
     position = Vector2{0.0f, 0.0f};
-    rotation = Vector2{0.0f, 0.0f};
+    rotation = 0.0f;
     scale = Vector2{100.0f, 100.0f};
 }
 
@@ -25,7 +25,7 @@ SpriteComponent::~SpriteComponent()
 void SpriteComponent::Draw()
 {
     Rectangle sourceRec = { 0.0f, 0.0f, (float)tex.width, (float)tex.height };
-	DrawTexturePro(tex, sourceRec, Rectangle{ pos.x, pos.y, scale.x, scale.y }, Vector2{ 0.0f, 0.0f }, 0.0f, WHITE);
+	DrawTexturePro(tex, sourceRec, Rectangle{ pos.x, pos.y, scale.x, scale.y }, Vector2{ 0.0f, 0.0f }, rotation, WHITE);
 }
 
 void SpriteComponent::Update(float deltaTime){

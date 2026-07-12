@@ -21,8 +21,8 @@ class BaseComponent : public Component
 {
 public:
     Vector2 position;
-    Vector2 rotation;
     Vector2 scale;
+    float rotation;
 
 	BaseComponent();
 	~BaseComponent();
@@ -39,7 +39,7 @@ private:
     Texture2D tex;
     Vector2 pos;
     Vector2 scale;
-    Vector2 rotation;
+    float rotation;
     BaseComponent* base;
 public:
     SpriteComponent(std::string texPathI, Entity* entityPass);

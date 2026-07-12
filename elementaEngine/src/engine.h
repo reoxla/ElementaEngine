@@ -3,7 +3,9 @@
 #include <vector>
 
 #include "map.h"
+#include "gui.h"
 #include "raylib.h"
+#include <imgui.h>
 #include <rlImGui.h>
 
 class Engine

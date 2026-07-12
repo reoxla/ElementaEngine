@@ -6,6 +6,8 @@ Engine::Engine() : isRunning(false), currentMap(nullptr){
     InitWindow(800, 800, "ElementaEngine");
     SetTargetFPS(60);
     rlImGuiSetup(true);
+    ImGuiIO& io = ImGui::GetIO();
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
     isRunning = true;
 }
 
@@ -47,12 +49,6 @@ void Engine::Run(){
 
         BeginDrawing();
 
-        rlImGuiBegin();
-
-
-
-        rlImGuiEnd();
-
         if (currentMap != nullptr)
         {
             ClearBackground(currentMap->backgroundColor);
@@ -64,6 +60,10 @@ void Engine::Run(){
             printf("No current map set. Please set a current map before running the engine.\n");
             ClearBackground(BLACK);
         }
+
+        BaseComponent* mario = dynamic_cast<BaseComponent*>(currentMap->entities[0]->components[0]);
+        renderGui(&mario->position.x, &mario->position.y, &mario->rotation, &mario->scale.x, &mario->scale.y);
+        
 
         EndDrawing();
     }   
